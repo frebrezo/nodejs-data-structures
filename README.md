@@ -13,3 +13,15 @@ Javascript implementation of data structures for educational purposes.
 
 ## Trees
 * BinaryTree - not implemented.
+
+## List algorithms
+* Linear search
+* Binary search
+  * Requires a sorted list.
+* Bubble sort
+* Insertion/selection sort
+* Merge sort
+* Heap sort
+* Quick sort
+
+## Tree algorithms
