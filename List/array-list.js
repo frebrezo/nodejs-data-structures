@@ -10,11 +10,11 @@ function ArrayList (initialCapacity) {
     } else {
         this.array = new Array(10);
     }
-    this.size = 0;
+    this.count = 0;
 
     this.toString = function() {
         var str = '';
-        for (var i = 0; i < this.size; ++i) {
+        for (var i = 0; i < this.count; ++i) {
             if (i > 0) {
                 str += ', ';
             }
@@ -44,11 +44,11 @@ function ArrayList (initialCapacity) {
     }
 
     this.add = function(value) {
-        if (this.array.length === this.size) {
+        if (this.array.length === this.count) {
             this.extend();
         }
-        this.array[this.size] = value;
-        ++this.size;
+        this.array[this.count] = value;
+        ++this.count;
     }
 
     this.insertAt = function(index, value) {
@@ -59,18 +59,18 @@ function ArrayList (initialCapacity) {
         if (index > this.array.length) {
             throw `index [${index}] larger than array length [${this.array.length}].`;
         }
-        if (this.array.length === this.size) {
+        if (this.array.length === this.count) {
             this.extend();
         }
-        if (index >= this.size) {
+        if (index >= this.count) {
             this.array[index] = value;
-            this.size = index + 1;
+            this.count = index + 1;
         } else {
-            for (var i = this.size; i > index; --i) {
+            for (var i = this.count; i > index; --i) {
                 this.array[i] = this.array[i-1];
             }
             this.array[index] = value;
-            ++this.size;
+            ++this.count;
         }
     }
 
@@ -79,8 +79,8 @@ function ArrayList (initialCapacity) {
             throw `index [${index}] is not a number.`
         }
         index = parseInt(index);
-        if (index >= this.size) {
-            throw `index [${index}] larger than elements in array [${this.size}].`;
+        if (index >= this.count) {
+            throw `index [${index}] larger than elements in array [${this.count}].`;
         }
         this.array[index] = value;
     }
@@ -90,13 +90,13 @@ function ArrayList (initialCapacity) {
             throw `index [${index}] is not a number.`
         }
         index = parseInt(index);
-        if (index >= this.size) {
-            throw `index [${index}] larger than elements in array [${this.size}].`;
+        if (index >= this.count) {
+            throw `index [${index}] larger than elements in array [${this.count}].`;
         }
-        for (var i = index; i < this.size - 1; ++i) {
+        for (var i = index; i < this.count - 1; ++i) {
             this.array[i] = this.array[i+1];
         }
-        --this.size;
+        --this.count;
     }
 
     this.getAt = function(index) {
@@ -104,15 +104,15 @@ function ArrayList (initialCapacity) {
             throw `index [${index}] is not a number.`
         }
         index = parseInt(index);
-        if (index >= this.size) {
-            throw `index [${index}] larger than elements in array [${this.size}].`;
+        if (index >= this.count) {
+            throw `index [${index}] larger than elements in array [${this.count}].`;
         }
         return this.array[index];
     }
 
     this.clear = function() {
         this.array = new Array(this.array.length);
-        this.size = 0;
+        this.count = 0;
     }
 }
 
@@ -122,7 +122,7 @@ console.log('Instantiate new ArrayList.');
 const list = new ArrayList(5);
 console.log(list.toString());
 console.log(list.length);
-console.log(list.size);
+console.log(list.count);
 console.log(`Initialize ArrayList with ['H', 'e', 'l', 'l', 'o'].`);
 list.add('H');
 list.add('e');
@@ -131,24 +131,24 @@ list.add('l');
 list.add('o');
 console.log(list.toString());
 console.log(list.length);
-console.log(list.size);
+console.log(list.count);
 console.log(`Insert into position 3 value 'z'.`);
 list.insertAt(3, 'z');
 console.log(list.toString());
 console.log(list.length);
-console.log(list.size);
+console.log(list.count);
 console.log(`Replace position 0 with value 'y'.`);
 list.replaceAt(0, 'y');
 console.log(list.toString());
 console.log(list.length);
-console.log(list.size);
+console.log(list.count);
 console.log('Delete position 2.')
 list.deleteAt(2);
 console.log(list.toString());
 console.log(list.length);
-console.log(list.size);
+console.log(list.count);
 console.log('Clear ArrayList.');
 list.clear();
 console.log(list.toString());
 console.log(list.length);
-console.log(list.size);
+console.log(list.count);
