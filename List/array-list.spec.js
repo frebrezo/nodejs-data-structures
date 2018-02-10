@@ -79,7 +79,7 @@ describe('ArrayList', function() {
             list.add('l');
             list.add('l');
             list.add('o');
-            expect(function () { list.getAt(10); }).toThrow(`index [10] larger than elements in array [${size}].`);
+            expect(function () { list.getAt(10); }).toThrow(`index [10] larger than the number of elements in array [${size}].`);
         });
     });
 
@@ -154,7 +154,7 @@ describe('ArrayList', function() {
             list.add('H');
             expect(list.count).toBe(1);
             expect(list.length).toBe(size);
-            expect(function() { list.replaceAt(3, 'l'); }).toThrow(`index [3] larger than elements in array [1].`);
+            expect(function() { list.replaceAt(3, 'l'); }).toThrow(`index [3] larger than the number of elements in array [1].`);
         });
 
         it('list.length', function() {
@@ -163,7 +163,7 @@ describe('ArrayList', function() {
             list.add('H');
             expect(list.count).toBe(1);
             expect(list.length).toBe(size);
-            expect(function() { list.replaceAt(5, 'l'); }).toThrow(`index [5] larger than elements in array [1].`);
+            expect(function() { list.replaceAt(5, 'l'); }).toThrow(`index [5] larger than the number of elements in array [1].`);
         });
 
         it('beyond list.length', function() {
@@ -172,7 +172,7 @@ describe('ArrayList', function() {
             list.add('H');
             expect(list.count).toBe(1);
             expect(list.length).toBe(size);
-            expect(function() { list.replaceAt(10, 'o'); }).toThrow(`index [10] larger than elements in array [1].`);
+            expect(function() { list.replaceAt(10, 'o'); }).toThrow(`index [10] larger than the number of elements in array [1].`);
         });
     });
 
@@ -197,7 +197,7 @@ describe('ArrayList', function() {
             list.add('H');
             expect(list.count).toBe(1);
             expect(list.length).toBe(size);
-            expect(function() { list.deleteAt(3); }).toThrow(`index [3] larger than elements in array [1].`);
+            expect(function() { list.deleteAt(3); }).toThrow(`index [3] larger than the number of elements in array [1].`);
         });
 
         it('list.length', function() {
@@ -206,7 +206,7 @@ describe('ArrayList', function() {
             list.add('H');
             expect(list.count).toBe(1);
             expect(list.length).toBe(size);
-            expect(function() { list.deleteAt(5); }).toThrow(`index [5] larger than elements in array [1].`);
+            expect(function() { list.deleteAt(5); }).toThrow(`index [5] larger than the number of elements in array [1].`);
         });
 
         it('beyond list.length', function() {
@@ -215,7 +215,7 @@ describe('ArrayList', function() {
             list.add('H');
             expect(list.count).toBe(1);
             expect(list.length).toBe(size);
-            expect(function() { list.deleteAt(10); }).toThrow(`index [10] larger than elements in array [1].`);
+            expect(function() { list.deleteAt(10); }).toThrow(`index [10] larger than the number of elements in array [1].`);
         });
     });
 });

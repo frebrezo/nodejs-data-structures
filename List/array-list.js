@@ -80,7 +80,7 @@ function ArrayList (initialCapacity) {
         }
         index = parseInt(index);
         if (index >= this.count) {
-            throw `index [${index}] larger than elements in array [${this.count}].`;
+            throw `index [${index}] larger than the number of elements in array [${this.count}].`;
         }
         this.array[index] = value;
     }
@@ -91,7 +91,7 @@ function ArrayList (initialCapacity) {
         }
         index = parseInt(index);
         if (index >= this.count) {
-            throw `index [${index}] larger than elements in array [${this.count}].`;
+            throw `index [${index}] larger than the number of elements in array [${this.count}].`;
         }
         for (var i = index; i < this.count - 1; ++i) {
             this.array[i] = this.array[i+1];
@@ -105,7 +105,7 @@ function ArrayList (initialCapacity) {
         }
         index = parseInt(index);
         if (index >= this.count) {
-            throw `index [${index}] larger than elements in array [${this.count}].`;
+            throw `index [${index}] larger than the number of elements in array [${this.count}].`;
         }
         return this.array[index];
     }
