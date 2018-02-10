@@ -1,5 +1,14 @@
 'use strict';
 
+/**
+ * Managed array implementation. This implementation allows data
+ * to be inserted into any index of the underlying array as long as
+ * the index at which the data is being inserted is <= count.
+ * In other words, it is possible to have an ArrayList where the data
+ * is fragmented. If data is inserted into the end of the array,
+ * it is effectively appended.
+ * @param {*} initialCapacity 
+ */
 function ArrayList (initialCapacity) {
     if (initialCapacity) {
         if (typeof initialCapacity !== 'number') {
@@ -12,6 +21,12 @@ function ArrayList (initialCapacity) {
     }
     this.count = 0;
 
+    /**
+     * Converts ArrayList into a string for display purposed.
+     * This method does not cache the generated string. The
+     * resulting string is regenerated every time toString is
+     * called.
+     */
     this.toString = function() {
         var str = '';
         for (var i = 0; i < this.count; ++i) {
@@ -23,6 +38,9 @@ function ArrayList (initialCapacity) {
         return `[${str}]`;
     }
 
+    /**
+     * Helper method to return the length of the underlying array.
+     */
     Object.defineProperty(this, 'length', {
         get: function() { return this.array.length; },
         set: function(value) {
@@ -34,6 +52,11 @@ function ArrayList (initialCapacity) {
         }
     });
 
+    /**
+     * Expands the underlying array using the formula:
+     * (this.array.length * 3) / 2 + 1.
+     * Data from the old array is copied into the new array.
+     */
     this.extend = function() {
         var newCapacity = parseInt((this.array.length * 3) / 2 + 1);
         var newArray = new Array(newCapacity);
@@ -43,6 +66,12 @@ function ArrayList (initialCapacity) {
         this.array = newArray;
     }
 
+    /**
+     * Appends value to the end of the underlying array. If the
+     * array is full, the array is expanded and then the value
+     * is added to the end.
+     * @param {*} value 
+     */
     this.add = function(value) {
         if (this.array.length === this.count) {
             this.extend();
@@ -51,6 +80,13 @@ function ArrayList (initialCapacity) {
         ++this.count;
     }
 
+    /**
+     * Inserts value at arbitrary index of the ArrayList.
+     * The function will succeed as long as index <= count.
+     * if index === count, value is effectively appended.
+     * @param {*} index 
+     * @param {*} value 
+     */
     this.insertAt = function(index, value) {
         if (typeof index !== 'number') {
             throw `index [${index}] is not a number.`
@@ -74,6 +110,12 @@ function ArrayList (initialCapacity) {
         }
     }
 
+    /**
+     * Replaces value at arbitrary index of the ArrayList, where
+     * index < count.
+     * @param {*} index 
+     * @param {*} value 
+     */
     this.replaceAt = function(index, value) {
         if (typeof index !== 'number') {
             throw `index [${index}] is not a number.`
@@ -85,6 +127,12 @@ function ArrayList (initialCapacity) {
         this.array[index] = value;
     }
 
+    /**
+     * Deletes value at arbitrary index of ArrayList, where
+     * index < count. Function deleteAt shifts the array values
+     * down by 1 starting at index.
+     * @param {*} index 
+     */
     this.deleteAt = function(index) {
         if (typeof index !== 'number') {
             throw `index [${index}] is not a number.`
@@ -99,6 +147,11 @@ function ArrayList (initialCapacity) {
         --this.count;
     }
 
+    /**
+     * Returns value at arbitrary index of ArrayList, where
+     * index < count.
+     * @param {*} index 
+     */
     this.getAt = function(index) {
         if (typeof index !== 'number') {
             throw `index [${index}] is not a number.`
@@ -110,6 +163,10 @@ function ArrayList (initialCapacity) {
         return this.array[index];
     }
 
+    /**
+     * Reinitializes underly array to a new array with length of
+     * the original array. Sets count = 0.
+     */
     this.clear = function() {
         this.array = new Array(this.array.length);
         this.count = 0;
