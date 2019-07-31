@@ -7,7 +7,7 @@ It is understood that the Javascript language array construct behaves like an Ar
 ### LinkedList
 Implies singly linked list.
 ### DoubleLinkedList
-Not implemented.
+
 ### Stack
 Not implemented.
 ### Queue
