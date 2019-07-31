@@ -66,12 +66,19 @@ function LinkedList() {
             throw `index [${index}] larger than the number of elements in array [${this.count}].`;
         }
         var currNode = this.head;
-        for (var i = 0; i < index; ++i) {
-            currNode = currNode.next;
+        if (index === this.count - 1) {
+            currNode = this.tail;
+        } else {
+            for (var i = 0; i < index; ++i) {
+                currNode = currNode.next;
+            }
         }
         currNode.value = value;
     }
 
+    /**
+     * Deletes element at position index and returns the value.
+     */
     this.deleteAt = function(index) {
         if (typeof index !== 'number') {
             throw `index [${index}] is not a number.`
@@ -86,8 +93,13 @@ function LinkedList() {
             prevNode = currNode;
             currNode = currNode.next;
         }
-        prevNode.next = currNode.next;
+        if (currNode === this.head) {
+            this.head = currNode.next;
+        } else {
+            prevNode.next = currNode.next;
+        }
         --this.count;
+        return currNode.value;
     }
 
     this.getAt = function(index) {
@@ -99,8 +111,12 @@ function LinkedList() {
             throw `index [${index}] larger than the number of elements in array [${this.count}].`;
         }
         var currNode = this.head;
-        for (var i = 0; i < index; ++i) {
-            currNode = currNode.next;
+        if (index === this.count - 1) {
+            currNode = this.tail;
+        } else {
+            for (var i = 0; i < index; ++i) {
+                currNode = currNode.next;
+            }
         }
         return currNode.value;
     }
