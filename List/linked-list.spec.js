@@ -50,6 +50,19 @@ describe('linked-list', function() {
     });
 
     describe('insertAt', function() {
+        it('beginning', function() {
+            var list = new linkedList.LinkedList();
+            list.add('H');
+            list.add('e');
+            list.add('l');
+            list.add('l');
+            list.add('o');
+            list.insertAt(0, 'x');
+            console.log(list.toString());
+            expect(list.getAt(0)).toBe('x');
+            expect(list.count).toBe(6);
+        });
+
         it('within count', function() {
             var list = new linkedList.LinkedList();
             list.add('H');
@@ -57,9 +70,22 @@ describe('linked-list', function() {
             list.add('l');
             list.add('l');
             list.add('o');
-            list.insertAt(3, 'z');
+            list.insertAt(3, 'x');
             console.log(list.toString());
-            expect(list.getAt(3)).toBe('z');
+            expect(list.getAt(3)).toBe('x');
+            expect(list.count).toBe(6);
+        });
+
+        it('end', function() {
+            var list = new linkedList.LinkedList();
+            list.add('H');
+            list.add('e');
+            list.add('l');
+            list.add('l');
+            list.add('o');
+            list.insertAt(5, 'x');
+            console.log(list.toString());
+            expect(list.getAt(5)).toBe('x');
             expect(list.count).toBe(6);
         });
 
@@ -68,21 +94,34 @@ describe('linked-list', function() {
             list.add('H');
             console.log(list.toString());
             expect(list.count).toBe(1);
-             expect(function() { list.insertAt(4, 'o'); }).toThrow(`index [4] larger than the number of elements in array [${list.count}].`);
+             expect(function() { list.insertAt(4, 'x'); }).toThrow(`index [4] larger than the number of elements in array [${list.count}].`);
         });
 
         it('count', function() {
             var list = new linkedList.LinkedList();
             list.add('H');
             expect(list.count).toBe(1);
-            list.insertAt(1, 'z');
+            list.insertAt(1, 'x');
             console.log(list.toString());
-            expect(list.getAt(1)).toBe('z');
+            expect(list.getAt(1)).toBe('x');
             expect(list.count).toBe(2);
         });
     });
 
     describe('replaceAt', function() {
+        it('beginning', function() {
+            var list = new linkedList.LinkedList();
+            list.add('H');
+            list.add('e');
+            list.add('l');
+            list.add('l');
+            list.add('o');
+            list.replaceAt(0, 'z');
+            console.log(list.toString());
+            expect(list.getAt(0)).toBe('z');
+            expect(list.count).toBe(5);
+        });
+
         it('within count', function() {
             var list = new linkedList.LinkedList();
             list.add('H');
@@ -93,6 +132,19 @@ describe('linked-list', function() {
             list.replaceAt(3, 'z');
             console.log(list.toString());
             expect(list.getAt(3)).toBe('z');
+            expect(list.count).toBe(5);
+        });
+
+        it('end', function() {
+            var list = new linkedList.LinkedList();
+            list.add('H');
+            list.add('e');
+            list.add('l');
+            list.add('l');
+            list.add('o');
+            list.replaceAt(4, 'z');
+            console.log(list.toString());
+            expect(list.getAt(4)).toBe('z');
             expect(list.count).toBe(5);
         });
 
@@ -115,6 +167,20 @@ describe('linked-list', function() {
     });
 
     describe('deleteAt', function() {
+        it('beginning', function() {
+            var list = new linkedList.LinkedList();
+            list.add('H');
+            list.add('e');
+            list.add('l');
+            list.add('l');
+            list.add('o');
+            var value = list.deleteAt(0);
+            expect(value).toBe('H');
+            console.log(list.toString());
+            expect(list.getAt(0)).toBe('e');
+            expect(list.count).toBe(4);
+        });
+
         it('within count', function() {
             var list = new linkedList.LinkedList();
             list.add('H');
@@ -122,9 +188,24 @@ describe('linked-list', function() {
             list.add('l');
             list.add('l');
             list.add('o');
-            list.deleteAt(3);
+            var value = list.deleteAt(3);
+            expect(value).toBe('l');
             console.log(list.toString());
             expect(list.getAt(3)).toBe('o');
+            expect(list.count).toBe(4);
+        });
+
+        it('end', function() {
+            var list = new linkedList.LinkedList();
+            list.add('H');
+            list.add('e');
+            list.add('l');
+            list.add('l');
+            list.add('o');
+            var value = list.deleteAt(list.count - 1);
+            expect(value).toBe('o');
+            console.log(list.toString());
+            expect(list.getAt(list.count - 1)).toBe('l');
             expect(list.count).toBe(4);
         });
 

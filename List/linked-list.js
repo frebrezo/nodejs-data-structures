@@ -24,9 +24,12 @@ function LinkedList() {
     }
 
     this.add = function(value) {
-        if (this.head === undefined) {
+        if (!this.head && !this.tail) {
             this.head = new LinkedListNode(value, undefined);
             this.tail = this.head;
+        } else if (this.head === this.tail) {
+            this.head.next = new LinkedListNode(value, undefined);
+            this.tail = this.head.next;
         } else {
             this.tail.next = new LinkedListNode(value, undefined);
             this.tail = this.tail.next;
@@ -42,7 +45,16 @@ function LinkedList() {
         if (index > this.count) {
             throw `index [${index}] larger than the number of elements in array [${this.count}].`;
         }
-        if (index === this.count) {
+        if (index === 0 && !this.head && !this.tail) {
+            this.head = new LinkedListNode(value, undefined);
+            this.tail = this.head;
+        } else if (index === 0 && this.head === this.tail) {
+            this.head = new LinkedListNode(value, this.head);
+            this.tail = this.head.next;
+        } else if (index > 0 && this.head === this.tail) {
+            this.head.next = new LinkedListNode(value, undefined);
+            this.tail = this.head.next;
+        } else if (index === this.count) {
             this.tail.next = new LinkedListNode(value, undefined);
             this.tail = this.tail.next;
         } else {
@@ -52,7 +64,11 @@ function LinkedList() {
                 prevNode = currNode;
                 currNode = currNode.next;
             }
-            prevNode.next = new LinkedListNode(value, currNode);
+            if (currNode === this.head) {
+                this.head = new LinkedListNode(value, currNode);
+            } else {
+                prevNode.next = new LinkedListNode(value, currNode);
+            }
         }
         ++this.count;
     }
@@ -89,14 +105,22 @@ function LinkedList() {
         }
         var prevNode = undefined;
         var currNode = this.head;
-        for (var i = 0; i < index; ++i) {
-            prevNode = currNode;
-            currNode = currNode.next;
-        }
-        if (currNode === this.head) {
-            this.head = currNode.next;
+        if (index === 0 && this.head === this.tail) {
+            this.head = undefined;
+            this.tail = this.head;
         } else {
-            prevNode.next = currNode.next;
+            for (var i = 0; i < index; ++i) {
+                prevNode = currNode;
+                currNode = currNode.next;
+            }
+            if (currNode === this.head) {
+                this.head = currNode.next;
+            } else if (currNode == this.tail) {
+                prevNode.next = undefined;
+                this.tail = prevNode;
+            } else {
+                prevNode.next = currNode.next;
+            }
         }
         --this.count;
         return currNode.value;
