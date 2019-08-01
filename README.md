@@ -9,9 +9,9 @@ Implies singly linked list.
 ### DoubleLinkedList
 
 ### Stack
-Not implemented.
+Implemented using LinkedList.
 ### Queue
-Not implemented.
+Implemented using LinkedList.
 ### CircularQueue
 Not implemented.
 
