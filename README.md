@@ -7,25 +7,25 @@ It is understood that the Javascript language array construct behaves like an Ar
 
 Properties
 * length
-  * Accessor descriptor. Getter function returns this.array.length. Setter function sets this.array.length.
+  * Accessor descriptor. Getter function returns `this.array.length`. Setter function sets `this.array.length`.
 
 Functions
 * toString
-  * Outputs this.array contents to string in the following format [<element0>, <element1>, <element2>, ..., <elementN>].
+  * Outputs `this.array` contents to string in the following format `[<element0>, <element1>, <element2>, ..., <elementN>]`.
 * extend
-  * Expands array using the formula (this.array.length * 3) / 2 + 1 and copies data from the old array into the new array.
+  * Expands array using the formula `(this.array.length * 3) / 2 + 1` and copies data from the old array into the new array.
 * add
-  * Appends value to the end of the array. If this.count === this.array.length, then this.array is extended.
+  * Appends `value` to the end of the array. If `this.count === this.array.length`, then `this.array` is extended.
 * insertAt
-  * Inserts value at index. If this.count === this.array.length, then this.array is extended.
+  * Inserts `value` at `index`. If `this.count === this.array.length`, then `this.array` is extended.
 * replaceAt
-  * Replaces value at index.
+  * Replaces existing value at `index` with `value`.
 * deleteAt
-  * Deletes value at index by shifting array contents down by one to delete the value at index.
+  * Deletes value at `index` by shifting array contents down by one to delete the value at `index`.
 * getAt
-  * Returns the value at index.
+  * Returns the value at `index`.
 * clear
-  * Generates a new array of size this.array.length and sets this.count = 0.
+  * Generates a new array of size `this.array.length` and sets `this.count = 0`.
 
 ### LinkedList
 Implies singly linked list.
