@@ -11,13 +11,21 @@ Properties
 
 Functions
 * toString
+  * Outputs this.array contents to string in the following format [<element0>, <element1>, <element2>, ..., <elementN>].
 * extend
+  * Expands array using the formula (this.array.length * 3) / 2 + 1 and copies data from the old array into the new array.
 * add
+  * Appends value to the end of the array. If this.count === this.array.length, then this.array is extended.
 * insertAt
+  * Inserts value at index. If this.count === this.array.length, then this.array is extended.
 * replaceAt
+  * Replaces value at index.
 * deleteAt
+  * Deletes value at index by shifting array contents down by one to delete the value at index.
 * getAt
+  * Returns the value at index.
 * clear
+  * Generates a new array of size this.array.length and sets this.count = 0.
 
 ### LinkedList
 Implies singly linked list.
