@@ -7,7 +7,7 @@ It is understood that the Javascript language array construct behaves like an Ar
 
 Properties
 * length
-** Accessor descriptor. Getter function returns this.array.length. Setter function sets this.array.length.
+  * Accessor descriptor. Getter function returns this.array.length. Setter function sets this.array.length.
 
 Functions
 * toString
