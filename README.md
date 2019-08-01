@@ -29,6 +29,23 @@ Functions
 
 ### LinkedList
 Implies singly linked list.
+
+Functions
+* toString
+  * Outputs linked list contents to string in the following format `[<element0>, <element1>, <element2>, ..., <elementN>]`.
+* add
+  * Appends `value` to the end of the linked list.
+* insertAt
+  * Inserts `value` at `index`.
+* replaceAt
+  * Replaces existing value at `index` with `value`.
+* deleteAt
+  * Deletes value at `index`.
+* getAt
+  * Returns the value at `index`.
+* clear
+  * Sets `this.head = undefined` and `this.tail = undefined`, and sets `this.count = 0`.
+
 ### DoubleLinkedList
 
 ### Stack
