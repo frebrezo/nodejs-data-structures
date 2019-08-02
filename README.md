@@ -92,8 +92,9 @@ Examples of usages of a Stack
 Not implemented.
 
 ## Trees
-### BinaryTree - not implemented.
-
+### BinaryTree
+### LCRSTree
+LCRS (Left Child, Right Sibling) tree.
 ## List algorithms
 ### Linear search
 Scans a list starting from the beginning to find `value`. If `value` exists in the list more than once, returns the first occurrence of `value`. Linear search DOES NOT require the list to be sorted to find `value`.
