@@ -16,6 +16,7 @@ function arrayToString(array) {
 describe('binary-tree', function () {
     it('add', function() {
         var bTreeValues = ['5', '1', '3', '9', '0', '2', '5', '2', '2', '8', '6', '0', '2', '3', '5'];
+        console.log(arrayToString(bTreeValues));
         var bt = new binaryTree.BinaryTree();
         for (var i = 0; i < bTreeValues.length; ++i) {
             bt.add(bTreeValues[i]);
