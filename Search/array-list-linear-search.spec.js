@@ -1,7 +1,7 @@
 'use strict';
 
 const arrayList = require('../List/array-list');
-const arrayListSearchable = require('./array-list-linear-search');
+const arrayListSearch = require('./array-list-linear-search');
 
 describe('array-list-linear-search', function() {
     describe('addArrayListLinearSearch', function() {
@@ -12,21 +12,21 @@ describe('array-list-linear-search', function() {
 
         it('search exists', function() {
             var list = new arrayList.ArrayList();
-            arrayListSearchable.addArrayListLinearSearch(list);
+            arrayListSearch.addArrayListLinearSearch(list);
             expect(typeof(list.search)).toBe('function');
         });
 
         it('search already exists', function() {
             var list = new arrayList.ArrayList();
-            arrayListSearchable.addArrayListLinearSearch(list);
-            arrayListSearchable.addArrayListLinearSearch(list);
-            arrayListSearchable.addArrayListLinearSearch(list);
+            arrayListSearch.addArrayListLinearSearch(list);
+            arrayListSearch.addArrayListLinearSearch(list);
+            arrayListSearch.addArrayListLinearSearch(list);
             expect(typeof(list.search)).toBe('function');
         });
 
         it('object not ArrayList', function() {
             var list = new Array(10);
-            expect(function() { arrayListSearchable.addArrayListLinearSearch(list); }).toThrow(`list must be ArrayList [function Array() { [native code] }].`);
+            expect(function() { arrayListSearch.addArrayListLinearSearch(list); }).toThrow(`list must be ArrayList [function Array() { [native code] }].`);
         });
     });
 
@@ -39,7 +39,7 @@ describe('array-list-linear-search', function() {
             list.add('l');
             list.add('o');
             console.log(list.toString());
-            arrayListSearchable.addArrayListLinearSearch(list);
+            arrayListSearch.addArrayListLinearSearch(list);
             var searchChar = 'l';
             var index = list.search(searchChar);
             console.log(`[${searchChar}] found at position [${index}].`);
@@ -54,7 +54,7 @@ describe('array-list-linear-search', function() {
             list.add('l');
             list.add('o');
             console.log(list.toString());
-            arrayListSearchable.addArrayListLinearSearch(list);
+            arrayListSearch.addArrayListLinearSearch(list);
             var searchChar = 'x';
             var index = list.search(searchChar);
             console.log(`[${searchChar}] found at position [${index}].`);
@@ -69,7 +69,7 @@ describe('array-list-linear-search', function() {
             list.add('l');
             list.add('o');
             console.log(list.toString());
-            arrayListSearchable.addArrayListLinearSearch(list);
+            arrayListSearch.addArrayListLinearSearch(list);
             var searchChar = 'H';
             var index = list.search(searchChar);
             console.log(`[${searchChar}] found at position [${index}].`);
@@ -84,7 +84,7 @@ describe('array-list-linear-search', function() {
             list.add('l');
             list.add('o');
             console.log(list.toString());
-            arrayListSearchable.addArrayListLinearSearch(list);
+            arrayListSearch.addArrayListLinearSearch(list);
             var searchChar = 'o';
             var index = list.search(searchChar);
             console.log(`[${searchChar}] found at position [${index}].`);
