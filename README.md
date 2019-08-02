@@ -93,8 +93,10 @@ Not implemented.
 
 ## Trees
 ### BinaryTree
+https://stackoverflow.com/questions/2708914/how-to-add-add-node-in-binary-tree
 ### LCRSTree
 LCRS (Left Child, Right Sibling) tree.
+https://stackoverflow.com/questions/14015525/what-is-the-left-child-right-sibling-representation-of-a-tree-why-would-you-us
 ## List algorithms
 ### Linear search
 Scans a list starting from the beginning to find `value`. If `value` exists in the list more than once, returns the first occurrence of `value`. Linear search DOES NOT require the list to be sorted to find `value`.
