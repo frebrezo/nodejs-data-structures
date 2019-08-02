@@ -73,7 +73,7 @@ function BinaryTree() {
 
     this.infixSub = function(array, node) {
         if (!node) return;
-        array[array.length] = node.value;
+        array.push(node.value);
         this.infixSub(array, node.left);
         this.infixSub(array, node.right);
     }
