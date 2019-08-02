@@ -96,8 +96,13 @@ Not implemented.
 
 ## List algorithms
 ### Linear search
+Scans a list starting from the beginning to find `value`. If `value` exists in the list more than once, returns the first occurrence of `value`. Linear search DOES NOT require the list to be sorted to find `value`.
+
+A specialized version of linear search exists that returns the LAST occurrence of `value`.
+
 ### Binary search
-Requires a sorted list.
+Searches a list by splitting a list in half and determining if `value` exists in the left half or the right half. The process repeats itself until the value is found because only two values remain, the left or the right value. Binary search requires a sorted list to determine if `value` exists to the left of the value in the middle of the list or the right of the value in the middle of the list.
+
 ### Bubble sort
 ### Insertion/selection sort
 ### Merge sort
