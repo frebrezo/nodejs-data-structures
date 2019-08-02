@@ -1,6 +1,6 @@
 'use strict';
 
-var arrayList = require('./array-list');
+var arrayList = require('../List/array-list');
 
 function bubbleSort(list) {
     var iLast = list.count - 1;

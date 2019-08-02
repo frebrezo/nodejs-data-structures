@@ -1,7 +1,7 @@
 'use strict';
 
-var arrayList = require('./array-list');
-var arrayListSort = require('./array-list-sort');
+var arrayList = require('../List/array-list');
+var arrayListSort = require('./array-list-bubble-sort');
 
 describe('array-list-sort', function() {
     it('sort', function() {
