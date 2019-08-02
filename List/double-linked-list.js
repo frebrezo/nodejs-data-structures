@@ -14,7 +14,7 @@ function DoubleLinkedList() {
     this.toString = function() {
         var str = '';
         var currNode = this.head;
-        while (currNode !== undefined) {
+        while (currNode) {
             if (currNode !== this.head) {
                 str += ', ';
             }
@@ -25,7 +25,7 @@ function DoubleLinkedList() {
     }
 
     this.add = function(value) {
-        if (this.head === undefined) {
+        if (!this.head) {
             this.head = new DoubleLinkedListNode(value, undefined, undefined);
             this.tail = this.head;
         } else {

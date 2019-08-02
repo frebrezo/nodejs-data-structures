@@ -13,7 +13,7 @@ function LinkedList() {
     this.toString = function() {
         var str = '';
         var currNode = this.head;
-        while (currNode !== undefined) {
+        while (currNode) {
             if (currNode !== this.head) {
                 str += ', ';
             }
