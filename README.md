@@ -28,7 +28,14 @@ Functions
   * Generates a new array of size `this.array.length` and sets `this.count = 0`.
 
 ### LinkedList
-Implies singly linked list.
+Implies singly linked list. A singly linked list has two properties that track the list:
+* `this.head`
+  * The head tracks the beginning of the list.
+* `this.tail`
+  * The tail tracks the end of the list.
+Unlike an ArrayList, the middle of the list is not accessible at random. Instead the singly linked list must be TRAVERSED to access elements that are not the head or the tail of the list. This means for a singly linked list of length n, that it will take at most n-1 operations to access the 2nd to last element in the list, the last element in the list being accessible using `this.tail`.
+While it may seems unwieldy to use a singly linked list, the benefit is in the lack of continuous memory. An ArrayList REQUIRES a single uninterrupted block of memory to store the underlying array. However, a singly linked list is a collection of nodes instantiated at runtime linked together by `this.next` in LinkedListNode.
+Because it is expensive to traverse a singly linked list, generally operations that operate against the head or the tail of the singly linked list is preferred.
 
 Functions
 * toString
@@ -49,9 +56,21 @@ Functions
 ### DoubleLinkedList
 
 ### Stack
-Implemented using LinkedList.
+A Stack is a specialized list where elements can ONLY be added to the beginning of the list and removed from the beginning of the list, this is known as a LIFO (Last In, First Out). A Stack is similar to a stack of plates. The last plate added to the stack is the first plate taken from the stack of plates. A Stack only allows for two operations:
+* push
+  * Adds an element to the beginning of the list.
+* pop
+  * Removes an element from the beginning of the list.
+There is a helper method known as top that gets the value of the first Stack node.
+The Stack is implemented using LinkedList because operations are against the head of the list, thus very efficient.
 ### Queue
-Implemented using LinkedList.
+A Queue is a specialized list where elements can ONLY be added to the end of the list and removed from the front of the list, this is known as a FIFO (First In, First Out). A Queue is similar to a line (queue) of people, where each person is helped in the order they arrived in the line. A Queue only allows for two operations:
+* enqueue
+  * Adds an element to the end of the list.
+* dequeue
+  * Removes an element from the beginning of the list.
+There is a helper method known as peek that gets the value of the first Queue node.
+The Queue is implemented using LinkedList because operations are against the head and the tail of the list, thus very efficient.
 ### CircularQueue
 Not implemented.
 
