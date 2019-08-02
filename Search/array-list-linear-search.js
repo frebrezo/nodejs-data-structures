@@ -22,12 +22,13 @@ function addArrayListLinearSearch(list) {
         throw `list must be ArrayList [${list.constructor}].`;
     }
     if (typeof(list.search) === 'function') {
-        return;
+        list.search = arrayListLinearSearch;
+    } else {
+        Object.defineProperty(list, 'search', {
+            writable: true,
+            value: arrayListLinearSearch
+        });
     }
-    Object.defineProperty(list, 'search', {
-        writable: true,
-        value: arrayListLinearSearch
-    });
 }
 
 module.exports.addArrayListLinearSearch = addArrayListLinearSearch;
