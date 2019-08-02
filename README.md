@@ -93,6 +93,7 @@ Not implemented.
 
 ## Trees
 ### BinaryTree
+https://stackoverflow.com/questions/2708914/how-to-add-add-node-in-binary-tree
 ### LCRSTree
 LCRS (Left Child, Right Sibling) tree.
 ## List algorithms
