@@ -70,6 +70,19 @@ function BinaryTree() {
             this.addSub(newNode, this.root);
         }
     }
+
+    this.infixSub = function(array, node) {
+        if (!node) return;
+        array[array.length] = node.value;
+        this.infixSub(array, node.left);
+        this.infixSub(array, node.right);
+    }
+
+    this.infix = function() {
+        var array = [];
+        this.infixSub(array, this.root);
+        return array;
+    }
 }
 
 module.exports.BinaryTree = BinaryTree;
