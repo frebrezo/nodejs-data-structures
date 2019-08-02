@@ -174,38 +174,3 @@ function ArrayList (initialCapacity) {
 }
 
 module.exports.ArrayList = ArrayList;
-
-console.log('Instantiate new ArrayList.');
-const list = new ArrayList(5);
-console.log(list.toString());
-console.log(list.length);
-console.log(list.count);
-console.log(`Initialize ArrayList with ['H', 'e', 'l', 'l', 'o'].`);
-list.add('H');
-list.add('e');
-list.add('l');
-list.add('l');
-list.add('o');
-console.log(list.toString());
-console.log(list.length);
-console.log(list.count);
-console.log(`Insert into position 3 value 'z'.`);
-list.insertAt(3, 'z');
-console.log(list.toString());
-console.log(list.length);
-console.log(list.count);
-console.log(`Replace position 0 with value 'y'.`);
-list.replaceAt(0, 'y');
-console.log(list.toString());
-console.log(list.length);
-console.log(list.count);
-console.log('Delete position 2.')
-list.deleteAt(2);
-console.log(list.toString());
-console.log(list.length);
-console.log(list.count);
-console.log('Clear ArrayList.');
-list.clear();
-console.log(list.toString());
-console.log(list.length);
-console.log(list.count);
